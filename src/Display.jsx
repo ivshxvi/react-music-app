@@ -1,15 +1,29 @@
-import React from "react"
-import { useState } from "react"
+import React from "react";
+import { useAppState } from "./AppStateContext.jsx";
 
-export default function Display(){
-    
+export default function Display() {
+  const { entries } = useAppState();
 
+  const [likes, setLikes] = React.useState({});
 
-return (
+  const addLikes = (index) => {
+    setLikes((prevLikes) => ({
+      ...prevLikes,
+      [index]: (prevLikes[index] || 0) + 1,
+    }));
+  };
+
+  return (
     <div className="Display">
-        <h1>Kanye West</h1>
-        <h2>Popular</h2>
-        
+      {entries.map((entry, index) => (
+        <div key={index}>
+          <p>Album: {entry.album}</p>
+          <p>Year: {entry.year}</p>
+          <p>Song: {entry.song}</p>
+          <h4>Likes: {likes[index] || 0}</h4>
+          <button onClick={() => addLikes(index)}>Like</button>
+        </div>
+      ))}
     </div>
-)
+  );
 }
