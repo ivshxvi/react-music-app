@@ -1,24 +1,19 @@
-import React from "react"
+import React from "react";
 import { useAppState } from "./AppStateContext.jsx";
 
-
 export default function Form() {
-    const { formData, updateFormData } = useAppState();
+  const { formData, updateFormData, addEntry } = useAppState();
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      updateFormData(formData);
-    };
-  
-    return (
-      <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={(event) => updateFormData({ ...formData, name: event.target.value })}
-        placeholder="Name"
-      />
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addEntry();
+    // Reset the form data to empty strings
+    updateFormData({  album: "", year: "", song: "" });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      
       <input
         type="text"
         name="album"
@@ -42,5 +37,5 @@ export default function Form() {
       />
       <input type="submit" value="Submit" />
     </form>
-    );
+  );
 }
