@@ -7,7 +7,6 @@ export default function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
     addEntry();
-    // Reset the form data to empty strings
     updateFormData({  album: "", year: "", song: "" });
   };
 
