@@ -15,6 +15,7 @@ export default function Display() {
 
   return (
     <div className="Display">
+        <h1>Kanye West Fan page</h1>
       {entries.map((entry, index) => (
         <div key={index}>
           <p>Album: {entry.album}</p>
