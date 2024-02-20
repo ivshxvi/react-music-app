@@ -1,8 +1,9 @@
+import React from "react";
+
 const Form = (formData, setFormData, entries, setEntries) => {
     const updateFormData = (data) =>{
         setFormData(data)
     }
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
