@@ -1,10 +1,7 @@
-import React from "react";
-import { useAppState } from "./AppStateContext.jsx";
+import React, { useState } from "react";
 
-export default function Display() {
-  const { entries } = useAppState();
-
-  const [likes, setLikes] = React.useState({});
+const List = ({ entries }) => {
+  const [likes, setLikes] = useState({});
 
   const addLikes = (index) => {
     setLikes((prevLikes) => ({
@@ -15,7 +12,6 @@ export default function Display() {
 
   return (
     <div className="Display">
-        <h1>Kanye West Fan page</h1>
       {entries.map((entry, index) => (
         <div key={index}>
           <p>Album: {entry.album}</p>
@@ -27,4 +23,6 @@ export default function Display() {
       ))}
     </div>
   );
-}
+};
+
+export default List;
