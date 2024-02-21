@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 const Form = (formData, setFormData, entries, setEntries) => {
@@ -10,11 +11,25 @@ const Form = (formData, setFormData, entries, setEntries) => {
         addEntry();
         updateFormData({  album: "", year: "", song: "" });
       };
+=======
 
-      return (
-        <form onSubmit={handleSubmit}>
-          
-          <input
+import React from "react";
+
+const Form = ({ formData, setFormData, addEntry }) => {
+  const updateFormData = (data) => {
+    setFormData(data);
+  };
+>>>>>>> dev
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addEntry();
+    updateFormData({ album: "", year: "", song: "" });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
             type="text"
             name="album"
             value={formData.album}
@@ -35,10 +50,9 @@ const Form = (formData, setFormData, entries, setEntries) => {
             onChange={(event) => updateFormData({ ...formData, song: event.target.value })}
             placeholder="Song"
           />
-          <input type="submit" value="Submit" />
-        </form>
-      );
-    
-}
+      <input type="submit" value="Submit" />
+    </form>
+  );
+};
 
-export default Form
+export default Form;

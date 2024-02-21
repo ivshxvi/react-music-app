@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import { Form, List } from "./components"
+import { Form, List } from "./components";
+
 
 const App = () => {
-    const [formData, setFormData] = useState({ album: "", year: "", song: "" });
-    const [entries, setEntries] = useState([]);
+  const [formData, setFormData] = useState({ album: "", year: "", song: "" });
+  const [entries, setEntries] = useState([]);
 
-    return(
-        <>
-        <header>Kanye West Fan Page</header>
-        <Form formData = {formData} setFormData = {setFormData} entries = {entries} setEntries = {setEntries}/>
-        <List formData = {formData} setFormData = {setFormData} entries = {entries} setEntries = {setEntries}/>
-        </>
-    )
-}
+  const addEntry = () => {
+    setEntries((prevEntries) => [...prevEntries, formData]);
+  };
 
+  return (
+    <div>
+      <Form formData={formData} setFormData={setFormData} addEntry={addEntry} />
+      <List entries={entries} />
+    </div>
+  );
+};
 
-export default App
+export default App;
