@@ -5,12 +5,6 @@ const List = ({ entries }) => {
   const [likes, setLikes] = useState({});
 
 
-import React, { useState } from "react";
-
-const List = ({ entries }) => {
-  const [likes, setLikes] = useState({});
-
-
   const addLikes = (index) => {
     setLikes((prevLikes) => ({
       ...prevLikes,
