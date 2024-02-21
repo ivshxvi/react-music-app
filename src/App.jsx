@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { Form, List } from "./components";
+import Nav from './Nav';
+
+import { Home, About, Fav } from "./pages"
+import { Routes, Route } from "react-router-dom"
 
 
 const App = () => {
-  const [formData, setFormData] = useState({ album: "", year: "", song: "" });
-  const [entries, setEntries] = useState([]);
-
-  const addEntry = () => {
-    setEntries((prevEntries) => [...prevEntries, formData]);
-  };
-
+  
   return (
-    <div>
-      <Form formData={formData} setFormData={setFormData} addEntry={addEntry} />
-      <List entries={entries} />
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Nav />}>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/favorites" element={<Fav />}></Route>
+          <Route path="*" element={<h1>Not Found</h1>}></Route>
+        </Route>
+      </Routes>
     </div>
   );
 };
