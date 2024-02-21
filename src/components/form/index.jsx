@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
 
-const Form = (formData, setFormData, entries, setEntries) => {
-    const updateFormData = (data) =>{
-        setFormData(data)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        addEntry();
-        updateFormData({  album: "", year: "", song: "" });
-      };
-=======
 
 import React from "react";
 
@@ -19,7 +6,15 @@ const Form = ({ formData, setFormData, addEntry }) => {
   const updateFormData = (data) => {
     setFormData(data);
   };
->>>>>>> dev
+
+
+import React from "react";
+
+const Form = ({ formData, setFormData, addEntry }) => {
+  const updateFormData = (data) => {
+    setFormData(data);
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

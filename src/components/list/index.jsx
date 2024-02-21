@@ -1,20 +1,16 @@
-<<<<<<< HEAD
-import React from "react";
 
-const List = ({ formData, setFormData, entries, setEntries }) => {
-  const addEntry = () => {
-    setEntries((prevEntries) => [...prevEntries, formData]);
-  };
-
-  const [likes, setLikes] = React.useState({});
-
-=======
 import React, { useState } from "react";
 
 const List = ({ entries }) => {
   const [likes, setLikes] = useState({});
 
->>>>>>> dev
+
+import React, { useState } from "react";
+
+const List = ({ entries }) => {
+  const [likes, setLikes] = useState({});
+
+
   const addLikes = (index) => {
     setLikes((prevLikes) => ({
       ...prevLikes,
