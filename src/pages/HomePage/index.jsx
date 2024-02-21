@@ -4,7 +4,7 @@ function Home() {
     return (
         <div>
             <h1>Home</h1>
-            <p>Kanye West fan page</p>
+            <p role="paragraph">Kanye West fan page</p>
         </div>
     )
 }
